@@ -1,0 +1,9 @@
+<h1>LOGIN</h1>
+
+{{input value=email}}
+{{input value=password}}
+<button {{action 'login'}}>Login</button>
+
+{{#if hasError}}
+  HAS ERROR
+{{/if}}
