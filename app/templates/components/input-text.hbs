@@ -1,0 +1,7 @@
+<div class="form-group{{if feedbackIcon ' has-feedback' ''}}">
+  {{input type=type class="form-control" placeholder=placeholder value=value}}
+
+  {{#if feedbackIcon}}
+    <span class="glyphicon glyphicon-{{feedbackIcon}} form-control-feedback"></span>
+  {{/if}}
+</div>
