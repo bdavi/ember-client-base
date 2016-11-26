@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
 
   password: null,
 
-  hasError: false,
+  showErrors: false,
 
   actions: {
     login() {
@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
 
       this.get('session').authenticate('authenticator:oauth2', email, password).then(
         () => { this.transitionToRoute('authenticated'); },
-        () => { this.toggleProperty('hasError');   }
+        () => { this.toggleProperty('showErrors'); }
       );
     },
   },
