@@ -15,13 +15,15 @@ export default Ember.Controller.extend({
 
   actions: {
     login() {
-      const email = this.get('email');
-      const password = this.get('password');
+      return new Ember.RSVP.Promise((resolve, reject) => {
+        const email = this.get('email');
+        const password = this.get('password');
 
-      this.get('session').authenticate('authenticator:oauth2', email, password).then(
-        () => { this.transitionToRoute('authenticated'); },
-        () => { this.toggleProperty('showErrors'); }
-      );
-    },
+        this.get('session').authenticate('authenticator:oauth2', email, password).then(
+          () => { resolve(this.transitionToRoute('authenticated')); },
+          () => { reject(this.set('showErrors', true)); }
+        );
+      });
+     },
   },
 });
