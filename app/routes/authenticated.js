@@ -7,6 +7,8 @@ const {
 } = Ember;
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
+  classNames: ['hold-transition', 'skin-blue', 'sidebar-mini'],
+
   session: service(),
 
   beforeModel(transition) {
