@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: 'main-header',
+  classNames: 'main-sidebar',
 
-  tagName: 'header',
+  tagName: 'aside',
 });

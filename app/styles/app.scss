@@ -1,3 +1,12 @@
 @import 'bootstrap';
 @import '../../vendor/AdminLTE/css/AdminLTE';
 @import '../../vendor/AdminLTE/css/skins/skin-blue';
+
+html, body {
+  height: 100% !important; // Overrides auto value
+}
+
+// Effectively add .wrapper to the outermost ember-view div
+body > div {
+  @extend .wrapper;
+}

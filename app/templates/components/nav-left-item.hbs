@@ -1,0 +1,22 @@
+{{#if hasChild}}
+  <a>
+    <i class="fa fa-{{icon}}"></i> <span>{{title}}</span>
+    {{#if hasChild}}
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    {{/if}}
+  </a>
+  <ul class="treeview-menu">
+    {{yield}}
+  </ul>
+{{else}}
+  {{#link-to linkPath}}
+    <i class="fa fa-{{icon}}"></i> <span>{{title}}</span>
+    {{#if hasChild}}
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    {{/if}}
+  {{/link-to}}
+{{/if}}

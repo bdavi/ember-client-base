@@ -1,7 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: 'main-header',
+  tagName: 'li',
 
-  tagName: 'header',
+  linkPath: null,
+
+  icon: null,
 });
