@@ -10,3 +10,7 @@ html, body {
 body > div {
   @extend .wrapper;
 }
+
+.top-nav-user-icon {
+  margin: 3px 5px 0 0;
+}
