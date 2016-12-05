@@ -3,13 +3,15 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 const {
   isPresent,
-  inject: { service, },
+  inject,
 } = Ember;
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   classNames: ['hold-transition', 'skin-blue', 'sidebar-mini'],
 
-  session: service(),
+  session: inject.service(),
+
+  currentUser: inject.service('currentUser'),
 
   beforeModel(transition) {
     const { auth_token: authToken } = transition.queryParams;
@@ -23,5 +25,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     } else {
       this._super(...arguments);
     }
+  },
+
+  model() {
+    return this.get('currentUser.user');
   },
 });
