@@ -6,11 +6,10 @@ html, body {
   height: 100% !important; // Overrides auto value
 }
 
-// Effectively add .wrapper to the outermost ember-view div
-body > div {
-  @extend .wrapper;
-}
-
 .top-nav-user-icon {
   margin: 3px 5px 0 0;
+}
+
+.layout-boxed {
+  background: url('/assets/img/boxed-bg.jpg') repeat fixed;
 }

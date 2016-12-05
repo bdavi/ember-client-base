@@ -7,7 +7,7 @@ const {
 } = Ember;
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-  classNames: ['hold-transition', 'skin-blue', 'sidebar-mini'],
+  classNames: ['skin-blue', 'layout-boxed'],
 
   session: inject.service(),
 
