@@ -3,6 +3,10 @@
   {{user.name}}
 </a>
 <ul class="dropdown-menu" role="menu">
-  <li><a href="#">{{fa-icon 'user'}} Profile</a></li>
+  <li>
+    {{#link-to 'user-profile'}}
+      {{fa-icon 'user'}} Profile
+    {{/link-to}}
+  </li>
   <li><a href="#" {{action 'logout'}}>{{fa-icon 'sign-out'}} Logout</a></li>
 </ul>

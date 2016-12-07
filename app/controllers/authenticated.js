@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
     // can be removed either by editing the AdminLTE styles directly or when routable
     // components are available.
     $(document).ready( function () {
-      $('body div.ember-view').addClass('wrapper');
+      $('body > div.ember-view').addClass('wrapper');
     });
   },
 

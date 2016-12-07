@@ -1,0 +1,47 @@
+{{#page-header title="User Profile"}}
+  {{#page-header-breadcrumb-wrapper}}
+    <li>
+      {{#link-to 'authenticated'}}
+        {{fa-icon 'home'}} Home
+      {{/link-to}}
+    </li>
+    <li class="active">User Profile</li>
+  {{/page-header-breadcrumb-wrapper}}
+{{/page-header}}
+
+{{#page-content-wrapper}}
+  {{#content-box}}
+    {{#content-box-header}}
+      Account
+    {{/content-box-header}}
+
+    {{#content-box-body}}
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          {{display-attribute title="Name" value=model.name}}
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          {{display-attribute title="Email" value=model.email}}
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          <dt>Member Since</dt>
+          <dd>{{moment-format model.createdAt 'L'}}</dd>
+        </div>
+      </div>
+    {{/content-box-body}}
+
+    {{#content-box-footer}}
+      <div class="row">
+        <div class="col-xs-12 col-sm-3">
+          {{button-action label='Edit' labelIcon='edit'}}
+        </div>
+
+        <div class="col-xs-12 col-sm-3">
+          {{button-action label='Reset Password' labelIcon='key' style='warning'}}
+        </div>
+      </div>
+    {{/content-box-footer}}
+  {{/content-box}}
+{{/page-content-wrapper}}

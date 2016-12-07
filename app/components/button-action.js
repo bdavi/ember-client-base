@@ -3,6 +3,9 @@ import Ember from 'ember';
 const { computed } = Ember;
 
 export default Ember.Component.extend({
+
+  classNames: ['margin-bottom'],
+
   style: 'primary',
 
   onClickAction: null,
@@ -10,6 +13,10 @@ export default Ember.Component.extend({
   requiresConfirmation: false,
 
   isConfirming: false,
+
+  label: null,
+
+  labelIcon: null,
 
   confirmationMessage: null,
 
@@ -52,4 +59,5 @@ export default Ember.Component.extend({
       this.resetButton();
     },
   },
+
 });

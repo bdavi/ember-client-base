@@ -10,4 +10,6 @@ export default DS.Model.extend({
 
   email: attr('string'),
 
+  createdAt: attr('date'),
+
 });
