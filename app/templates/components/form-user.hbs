@@ -1,0 +1,46 @@
+{{#content-box}}
+  {{#content-box-body}}
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        {{form-input-text value=user.name isValid=user.isNameVaild showErrors=showErrors label='Name'}}
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        {{form-input-text value=user.email isValid=user.isEmailVaild showErrors=showErrors label='Email'}}
+      </div>
+    </div>
+
+    {{#if (and showErrors (not user.errors.isEmpty))}}
+      <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>{{fa-icon 'ban'}} Whoops there was a problem saving.</strong>
+        <ul>
+          {{#each user.errors as |error|}}
+            <li>{{error.message}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/if}}
+  {{/content-box-body}}
+
+  {{#content-box-footer}}
+    <div class="row">
+      <div class="col-xs-12 col-sm-3">
+        {{button-action
+          label='Save'
+          labelIcon='save'
+          onClickAction=(action 'save')
+        }}
+      </div>
+
+      <div class="col-xs-12 col-sm-3">
+        {{button-action
+          label='Cancel'
+          labelIcon='undo'
+          style='default'
+          onClickAction=(action 'cancel')
+        }}
+      </div>
+    </div>
+  {{/content-box-footer}}
+{{/content-box}}

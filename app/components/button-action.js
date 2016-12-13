@@ -39,19 +39,28 @@ export default Ember.Component.extend({
     }
   },
 
+  onClickActionIsAPromise: computed('onClickAction', function() {
+    return this.get('onClickAction').constructor.name === "Promise";
+  }),
+
   actions: {
     clickAction() {
-      if (this.get('disableButton')) {
-        return;
-      }
+      if (this.get('disableButton')) { return; }
 
       if (this.get('requiresConfirmation')) {
         this.set('isConfirming', true);
-      } else {
-        this.set('isProcessing', true);
+        return;
+      }
+
+      this.set('isProcessing', true);
+
+      if (this.get('onClickActionIsAPromise')) {
         this.get('onClickAction')().finally(
           () => { this.resetButton(); }
         );
+      } else {
+        this.get('onClickAction')();
+        this.resetButton();
       }
     },
 

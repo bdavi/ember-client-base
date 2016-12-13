@@ -1,0 +1,7 @@
+{{#form-group showErrors=showErrors isValid=isValid}}
+  {{#if label}}
+    <label>{{label}}</label>
+  {{/if}}
+  {{input type=type value=value class='form-control' placeholder=placeholder}}
+  {{yield}}
+{{/form-group}}

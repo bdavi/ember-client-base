@@ -9,6 +9,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('authenticated', { path: '/'}, function() {
     this.route('user-profile', { resetNamespace: true }, function() {
+      this.route('edit');
     });
   });
   this.route('login');

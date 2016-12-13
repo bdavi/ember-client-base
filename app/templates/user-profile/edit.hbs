@@ -1,0 +1,19 @@
+{{#page-header title="Edit User"}}
+  {{#page-header-breadcrumb-wrapper}}
+    <li>
+      {{#link-to 'authenticated'}}
+        {{fa-icon 'home'}} Home
+      {{/link-to}}
+    </li>
+    <li>
+      {{#link-to 'user-profile'}}
+        User Profile
+      {{/link-to}}
+    </li>
+    <li class="active">Edit User</li>
+  {{/page-header-breadcrumb-wrapper}}
+{{/page-header}}
+
+{{#page-content-wrapper}}
+  {{form-user user=model}}
+{{/page-content-wrapper}}

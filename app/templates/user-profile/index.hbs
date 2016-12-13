@@ -35,7 +35,9 @@
     {{#content-box-footer}}
       <div class="row">
         <div class="col-xs-12 col-sm-3">
-          {{button-action label='Edit' labelIcon='edit'}}
+          {{#link-to 'user-profile.edit' class='btn btn-primary btn-block btn-flat' tagName='button'}}
+            {{fa-icon 'edit'}} Edit
+          {{/link-to}}
         </div>
 
         <div class="col-xs-12 col-sm-3">
