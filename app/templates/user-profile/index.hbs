@@ -41,7 +41,9 @@
         </div>
 
         <div class="col-xs-12 col-sm-3">
-          {{button-action label='Reset Password' labelIcon='key' style='warning'}}
+          {{#link-to 'user-profile.reset-password' class='btn btn-warning btn-block btn-flat' tagName='button'}}
+            {{fa-icon 'key'}} Reset Password
+          {{/link-to}}
         </div>
       </div>
     {{/content-box-footer}}
