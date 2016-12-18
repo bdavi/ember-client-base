@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 const {
   inject: { service },
+  RSVP: { Promise },
 } = Ember;
 
 export default Ember.Component.extend({
@@ -18,15 +19,15 @@ export default Ember.Component.extend({
 
   actions: {
     login() {
-      return new Ember.RSVP.Promise((resolve, reject) => {
+      return new Promise((resolve, reject) => {
         const email = this.get('email');
         const password = this.get('password');
 
         this.get('session').authenticate('authenticator:oauth2', email, password).then(
-          () => { resolve(this.transitionToRoute('authenticated')); },
+          () => { resolve(this.get('router').transitionTo('authenticated')); },
           () => { reject(this.set('showErrors', true)); }
         );
       });
-     },
+    },
   },
 });

@@ -12,7 +12,7 @@ export default Ember.Component.extend({
 
   label: null,
 
-  placeholder: null
+  placeholder: null,
 
   feedbackIcon: null,
 
