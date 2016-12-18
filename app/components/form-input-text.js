@@ -14,4 +14,6 @@ export default Ember.Component.extend({
 
   placeholder: null
 
+  feedbackIcon: null,
+
 });

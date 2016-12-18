@@ -1,7 +1,13 @@
-{{#form-group showErrors=showErrors isValid=isValid}}
+{{#form-group class=(if feedbackIcon ' has-feedback' '') showErrors=showErrors isValid=isValid}}
   {{#if label}}
     <label>{{label}}</label>
   {{/if}}
+
   {{input type=type value=value class='form-control' placeholder=placeholder}}
+
+  {{#if feedbackIcon}}
+    <span class="glyphicon glyphicon-{{feedbackIcon}} form-control-feedback"></span>
+  {{/if}}
+
   {{yield}}
 {{/form-group}}
