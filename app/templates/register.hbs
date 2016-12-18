@@ -4,8 +4,11 @@
   </div>
 
   <div class="login-box-body">
+    <p class="login-box-msg">Register a new account</p>
+    {{input-text value=email placeholder='Full Name' feedbackIcon='user'}}
     {{input-text value=email placeholder='Email' feedbackIcon='envelope'}}
     {{input-text value=password type='password' placeholder='Password' feedbackIcon='lock'}}
+    {{input-text value=password type='password' placeholder='Confirm Password' feedbackIcon='repeat'}}
     {{#if showErrors}}
       <div class="help-block">
         <p class="text-danger">
@@ -17,13 +20,13 @@
     <div class="row">
       <div class="col-xs-4 col-xs-offset-8">
         {{button-action
-          label="Login"
-          onClickAction=(action 'login')
+          label="Register"
+          onClickAction=(action 'register')
         }}
       </div>
     </div>
-    {{#link-to 'register'}}
-      Need an account? Create one here.
+    {{#link-to 'login'}}
+      Already have an account? Login here.
     {{/link-to}}
   </div>
 </div>
