@@ -3,8 +3,8 @@
 </div>
 
 <div class="login-box-body">
-  {{input-text value=email placeholder='Email' feedbackIcon='envelope'}}
-  {{input-text value=password type='password' placeholder='Password' feedbackIcon='lock'}}
+  {{form-input-text value=email placeholder='Email' feedbackIcon='envelope'}}
+  {{form-input-text value=password type='password' placeholder='Password' feedbackIcon='lock'}}
   {{#if showErrors}}
     <div class="help-block">
       <p class="text-danger">
