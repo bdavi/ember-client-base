@@ -4,7 +4,10 @@ const {
   inject: { service },
 } = Ember;
 
-export default Ember.Controller.extend({
+export default Ember.Component.extend({
+
+  classNames: ['login-box'],
+
   session: service(),
 
   email: null,
