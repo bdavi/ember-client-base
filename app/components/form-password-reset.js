@@ -47,8 +47,10 @@ export default Ember.Component.extend({
     },
 
     cancel() {
-      this.get('reset').rollbackAttributes();
-      this.get('router').transitionTo('user-profile');
+      return new Promise(() => {
+        this.get('reset').rollbackAttributes();
+        this.get('router').transitionTo('user-profile');
+      });
     },
   },
 
