@@ -2,7 +2,7 @@ import DS from 'ember-data';
 import Ember from 'ember';
 import validator from 'npm:validator';
 
-const { attr } = DS;
+const { attr, hasMany } = DS;
 const { computed, isPresent } = Ember;
 const { isEmail } = validator;
 
@@ -25,5 +25,9 @@ export default DS.Model.extend({
   createdAt: attr('date'),
 
   isValid: computed.and('isNameVaild', 'isEmailVaild'),
+
+  memberships: hasMany('membership'),
+
+  organizations: hasMany('organization'),
 
 });
