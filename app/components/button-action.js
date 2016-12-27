@@ -39,10 +39,6 @@ export default Ember.Component.extend({
     }
   },
 
-  onClickActionIsAPromise: computed('onClickAction', function() {
-    return this.get('onClickAction').constructor.name === "Promise";
-  }),
-
   actions: {
     clickAction() {
       if (this.get('disableButton')) { return; }
@@ -54,14 +50,9 @@ export default Ember.Component.extend({
 
       this.set('isProcessing', true);
 
-      if (this.get('onClickActionIsAPromise')) {
-        this.get('onClickAction')().finally(
-          () => { this.resetButton(); }
-        );
-      } else {
-        this.get('onClickAction')();
-        this.resetButton();
-      }
+      this.get('onClickAction')().finally(
+        () => { this.resetButton(); }
+      );
     },
 
     cancel() {
