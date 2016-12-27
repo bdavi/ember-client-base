@@ -1,11 +1,12 @@
 import DS from 'ember-data';
 import Ember from 'ember';
-import ModelValidationMixin from '../mixins/model-validation-mixin';
+import validator from 'npm:validator';
 
 const { attr } = DS;
 const { computed, isPresent } = Ember;
+const { isEmail } = validator;
 
-export default DS.Model.extend(ModelValidationMixin, {
+export default DS.Model.extend({
 
   name: attr('string'),
 
@@ -18,7 +19,7 @@ export default DS.Model.extend(ModelValidationMixin, {
   email: attr('string'),
 
   isEmailVaild: computed('email', function() {
-    return this.isValidEmail(this.get('email'));
+    return isEmail(this.get('email'));
   }),
 
   createdAt: attr('date'),

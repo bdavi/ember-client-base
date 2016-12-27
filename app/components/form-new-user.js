@@ -16,15 +16,25 @@ export default Ember.Component.extend({
 
   user: null,
 
+  // organization: null,
+
   init() {
     this._super(...arguments);
     this.initUser();
+    // this.initOrganization();
   },
 
   initUser() {
     const user = this.get('store').createRecord('user');
     this.set('user', user);
   },
+
+  // initOrganization() {
+  //   const organization = this.get('store').createRecord('organization', {
+  //     users: [this.get('user')],
+  //   });
+  //   this.set('organization', organization);
+  // },
 
   passwordConfirmation: null,
 
