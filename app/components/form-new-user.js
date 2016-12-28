@@ -16,25 +16,19 @@ export default Ember.Component.extend({
 
   user: null,
 
-  // organization: null,
+  organization: null,
 
   init() {
     this._super(...arguments);
-    this.initUser();
-    // this.initOrganization();
-  },
 
-  initUser() {
     const user = this.get('store').createRecord('user');
     this.set('user', user);
-  },
 
-  // initOrganization() {
-  //   const organization = this.get('store').createRecord('organization', {
-  //     users: [this.get('user')],
-  //   });
-  //   this.set('organization', organization);
-  // },
+    const organization = this.get('store').createRecord('organization', {
+      users: [user]
+    });
+    this.set('organization', organization);
+  },
 
   passwordConfirmation: null,
 
@@ -49,7 +43,7 @@ export default Ember.Component.extend({
   showErrors: false,
 
   formIsValid: computed.and('user.isValid', 'isPasswordConfirmationValid',
-    'isPasswordValid', 'passwordMatchesConfirmation'),
+    'isPasswordValid', 'passwordMatchesConfirmation', 'organization.isValid'),
 
   passwordMatchesConfirmation: computed('user.password', 'passwordConfirmation', function() {
     return this.get('user.password') === this.get('passwordConfirmation');
@@ -57,20 +51,23 @@ export default Ember.Component.extend({
 
   actions: {
     register() {
-      if (!this.get('formIsValid')) {
-        this.set('showErrors', true);
-        return;
-      }
-
       return new Promise((resolve, reject) => {
-        this.get('user').save().then(() => {
-          const email = this.get('user.email');
-          const password = this.get('user.password');
+        if (!this.get('formIsValid')) {
+          this.set('showErrors', true);
+          reject();
+          return;
+        }
 
-          this.get('session').authenticate('authenticator:oauth2', email, password).then(
-            () => { resolve(this.get('router').transitionTo('authenticated')); },
-            () => { reject(this.set('showErrors', true)); }
-          );
+        this.get('user').save().then(() => {
+          this.get('organization').save().then(() => {
+            const email = this.get('user.email');
+            const password = this.get('user.password');
+
+            this.get('session').authenticate('authenticator:oauth2', email, password).then(
+              () => { resolve(this.get('router').transitionTo('authenticated')); },
+              () => { reject(this.set('showErrors', true)); }
+            );
+          });
         }, (error) => {
           this.set('showErrors', true);
           reject(error);

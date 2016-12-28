@@ -21,6 +21,14 @@
   }}
 
   {{form-input-text
+    value=organization.name
+    isValid=organization.isNameVaild
+    placeholder='Organization Name'
+    feedbackIcon='equalizer'
+    showErrors=showErrors
+  }}
+
+  {{form-input-text
     value=user.password
     isValid=(and isPasswordValid passwordMatchesConfirmation)
     type='password'

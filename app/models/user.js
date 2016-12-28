@@ -19,7 +19,7 @@ export default DS.Model.extend({
   email: attr('string'),
 
   isEmailVaild: computed('email', function() {
-    return isEmail(this.get('email'));
+    return isEmail(this.get('email') || '');
   }),
 
   createdAt: attr('date'),
