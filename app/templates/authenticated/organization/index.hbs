@@ -1,0 +1,50 @@
+{{#page-header title=model.name}}
+  {{#page-header-breadcrumb-wrapper}}
+    <li>
+      {{#link-to 'authenticated'}}
+        {{fa-icon 'home'}} Home
+      {{/link-to}}
+    </li>
+    <li class="active">{{model.name}}</li>
+  {{/page-header-breadcrumb-wrapper}}
+{{/page-header}}
+
+{{#page-content-wrapper}}
+  {{#content-box}}
+    {{#content-box-body}}
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          {{display-attribute title="Name" value=model.name}}
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          {{display-attribute preserveLineBreaks=true title="Address" value=model.address}}
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          {{display-attribute title="Phone" linkFormat='phone' value=model.phone}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          {{display-attribute title="Email" linkFormat='email' value=model.email}}
+        </div>
+
+        <div class="col-xs-12 col-sm-4">
+          {{display-attribute title="URL" linkFormat='url' value=model.url}}
+        </div>
+      </div>
+    {{/content-box-body}}
+
+    {{#content-box-footer}}
+      <div class="row">
+        <div class="col-xs-12 col-sm-3">
+          {{#link-to 'authenticated.organization.index' model.id class='btn btn-primary btn-block btn-flat' tagName='button'}}
+            {{fa-icon 'edit'}} Edit
+          {{/link-to}}
+        </div>
+      </div>
+    {{/content-box-footer}}
+  {{/content-box}}
+{{/page-content-wrapper}}

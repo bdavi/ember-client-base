@@ -13,6 +13,7 @@ Router.map(function() {
       this.route('reset-password');
     });
     this.route('organizations', function() {});
+    this.route('organization', { path: 'organizations/:organizationId' }, function() {});
   });
   this.route('login');
   this.route('register');

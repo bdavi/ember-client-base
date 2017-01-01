@@ -1,1 +1,3 @@
-<strong>{{organization.name}}</strong>
+{{#link-to 'authenticated.organization' organization.id}}
+  <strong>{{organization.name}}</strong>
+{{/link-to}}
