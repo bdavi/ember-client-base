@@ -6,6 +6,7 @@ export default Ember.Mixin.create({
   displaySearchQuery: '',
 
   setSearchQueryParam() {
+    this.set('offset', 0);
     this.set('searchQuery', this.get('displaySearchQuery'));
   },
 
