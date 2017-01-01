@@ -1,0 +1,27 @@
+<ul class="pagination pagination-index-footer">
+  <li class="page-item{{if (not hasPreviousPage) ' disabled'}}">
+    <a class="page-link" href="#" aria-label="Previous" {{action 'goToPreviousPage'}}>
+      <span aria-hidden="true">&laquo;</span>
+      <span class="sr-only">Previous</span>
+    </a>
+  </li>
+
+  {{#each pageList as |page|}}
+    {{#if (eq page '...')}}
+      <li class="page-item">
+        <a class="page-link">{{page}}</a>
+      </li>
+    {{else}}
+      <li class="page-item{{if (eq page currentPageNumber) ' active'}}">
+        <a class="page-link" href="#" {{action 'goToPage' page}}>{{page}}</a>
+      </li>
+    {{/if}}
+  {{/each}}
+
+  <li class="page-item{{if (not hasNextPage) ' disabled'}}">
+    <a class="page-link" href="#" aria-label="Next" {{action 'goToNextPage'}}>
+      <span aria-hidden="true">&raquo;</span>
+      <span class="sr-only">Next</span>
+    </a>
+  </li>
+</ul>
