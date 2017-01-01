@@ -1,7 +1,11 @@
 <dt>{{title}}</dt>
 <dd>
   {{#if value}}
-    {{value}}
+    {{#if linkFormat}}
+      <a href="{{linkFormatProtocol}}{{trimmedValue}}" class={{if preserveLineBreaks 'pre-wrap-white-space'}}>{{trimmedValue}}</a>
+    {{else}}
+      <span class={{if preserveLineBreaks 'pre-wrap-white-space'}}>{{trimmedValue}}</span>
+    {{/if}}
   {{else}}
     <em>No value present.</em>
   {{/if}}
