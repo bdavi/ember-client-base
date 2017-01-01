@@ -21,8 +21,8 @@ export default Ember.Component.extend({
   linkFormatProtocol: computed('linkFormat', function() {
     const format = this.get('linkFormat');
 
-    if (format === 'email') { return 'mailto:' }
-    if (format === 'phone') { return 'tel:' }
+    if (format === 'email') { return 'mailto:'; }
+    if (format === 'phone') { return 'tel:'; }
     return '';
   }),
 
