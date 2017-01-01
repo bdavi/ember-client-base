@@ -12,11 +12,26 @@
 {{#page-content-wrapper}}
   {{#content-box}}
     {{#content-box-body}}
-      <ul class="list-group">
-        {{#each model as |organization|}}
-          {{list-item-organization organization=organization}}
-        {{/each}}
-      </ul>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          {{form-input-text
+            value=displaySearchQuery
+            keyDownAction=(action 'search')
+            placeholder='Search organizations...'
+            feedbackIcon='search'
+          }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="list-group">
+            {{#each model as |organization|}}
+              {{list-item-organization organization=organization}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
     {{/content-box-body}}
 
     {{#content-box-footer}}

@@ -3,7 +3,7 @@ import Ember from 'ember';
 const { computed } = Ember;
 
 export default Ember.Mixin.create({
-  paginationQueryParams: ['offset', 'limit'],
+  // Requires offset and limit query parameters
 
   offset: 0,
 

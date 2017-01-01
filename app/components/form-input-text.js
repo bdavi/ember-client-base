@@ -16,4 +16,5 @@ export default Ember.Component.extend({
 
   feedbackIcon: null,
 
+  keyDownAction: null,
 });
