@@ -1,0 +1,35 @@
+{{#page-header title='Organizations'}}
+  {{#page-header-breadcrumb-wrapper}}
+    <li>
+      {{#link-to 'authenticated'}}
+        {{fa-icon 'home'}} Home
+      {{/link-to}}
+    </li>
+    <li class="active">Organizations</li>
+  {{/page-header-breadcrumb-wrapper}}
+{{/page-header}}
+
+{{#page-content-wrapper}}
+  {{#content-box}}
+    {{#content-box-body}}
+      <ul class="list-group">
+        {{#each model as |organization|}}
+          {{list-item-organization organization=organization}}
+        {{/each}}
+      </ul>
+    {{/content-box-body}}
+
+    {{#content-box-footer}}
+      {{pagination-buttons
+        class='pull-right'
+        goToNextPageAction=(action 'goToNextPage')
+        goToPreviousPageAction=(action 'goToPreviousPage')
+        goToPageAction=(action 'goToPage')
+        currentPageNumber=currentPageNumber
+        totalPageCount=totalPageCount
+        hasNextPage=hasNextPage
+        hasPreviousPage=hasPreviousPage
+      }}
+    {{/content-box-footer}}
+  {{/content-box}}
+{{/page-content-wrapper}}

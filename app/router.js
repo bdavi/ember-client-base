@@ -12,6 +12,7 @@ Router.map(function() {
       this.route('edit');
       this.route('reset-password');
     });
+    this.route('organizations', function() {});
   });
   this.route('login');
   this.route('register');
