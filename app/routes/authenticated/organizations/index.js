@@ -1,9 +1,10 @@
 import Ember from 'ember';
+import SearchableRoute from '../../../mixins/searchable-route';
+import PaginatedRoute from '../../../mixins/paginated-route';
 
 const { isPresent } = Ember;
 
-export default Ember.Route.extend({
-
+export default Ember.Route.extend(SearchableRoute, PaginatedRoute, {
   queryParams: {
     offset: {
       refreshModel: true
@@ -34,4 +35,8 @@ export default Ember.Route.extend({
     });
   },
 
+  resetQueryParams: function(){
+    this.resetSearchQueryParams();
+    this.resetPaginationQueryParams();
+  }.on('deactivate')
 });

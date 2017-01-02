@@ -6,6 +6,11 @@ export default Ember.Route.extend({
     const { organizationId } = params;
 
     return this.store.findRecord('organization', organizationId);
-  }
+  },
+
+  setupController(controller) {
+    this._super(...arguments);
+    controller.set('currentUser', this.modelFor('authenticated'));
+  },
 
 });
