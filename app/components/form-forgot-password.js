@@ -37,14 +37,15 @@ export default Ember.Component.extend( {
 
   actions: {
     requestReset() {
-      const resetRequest = this.get('resetRequest');
-
-      if (!resetRequest.get('isValid')) {
-        this.set('showErrors', true);
-        return;
-      }
-
       return new Promise((resolve, reject) => {
+        const resetRequest = this.get('resetRequest');
+
+        if (!resetRequest.get('isValid')) {
+          this.set('showErrors', true);
+          resolve();
+          return;
+        }
+
         this.get('resetRequest').save().then(() => {
           this.set('emailHasBeenSent', true);
           resolve();

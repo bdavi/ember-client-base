@@ -10,10 +10,10 @@ export default DS.Model.extend({
 
   email: attr('string'),
 
-  isEmailVaild: computed('email', function() {
+  isEmailValid: computed('email', function() {
     return isEmail(this.get('email'));
   }),
 
-  isValid: computed.alias('isEmailVaild'),
+  isValid: computed.alias('isEmailValid'),
 
 });

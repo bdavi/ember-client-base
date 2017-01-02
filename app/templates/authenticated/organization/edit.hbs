@@ -1,0 +1,19 @@
+{{#page-header title=(concat 'Edit ' model.name)}}
+  {{#page-header-breadcrumb-wrapper}}
+    <li>
+      {{#link-to 'authenticated'}}
+        {{fa-icon 'home'}} Home
+      {{/link-to}}
+    </li>
+    <li>
+      {{#link-to 'authenticated.organization'}}
+        {{model.name}}
+      {{/link-to}}
+    </li>
+    <li class="active">Edit</li>
+  {{/page-header-breadcrumb-wrapper}}
+{{/page-header}}
+
+{{#page-content-wrapper}}
+  {{form-organization organization=model}}
+{{/page-content-wrapper}}

@@ -10,7 +10,7 @@ export default DS.Model.extend({
 
   name: attr('string'),
 
-  isNameVaild: computed('name', function() {
+  isNameValid: computed('name', function() {
     return isPresent(this.get('name'));
   }),
 
@@ -32,7 +32,7 @@ export default DS.Model.extend({
 
   email: attr('string'),
 
-  isEmailVaild: computed('email', function() {
+  isEmailValid: computed('email', function() {
     const email = this.get('email');
     return isBlank(email) || isEmail(email);
   }),
@@ -41,6 +41,6 @@ export default DS.Model.extend({
 
   memberships: hasMany('membership'),
 
-  isValid: computed.and('isNameVaild', 'isPhoneValid', 'isUrlValid', 'isEmailVaild'),
+  isValid: computed.and('isNameValid', 'isPhoneValid', 'isUrlValid', 'isEmailValid'),
 
 });

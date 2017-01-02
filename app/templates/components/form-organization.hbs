@@ -1,0 +1,43 @@
+{{#content-box}}
+  {{#content-box-body}}
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        {{form-input-text value=organization.name isValid=organization.isNameValid showErrors=showErrors label='Name'}}
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        {{form-input-text value=organization.address rows='2' isValid=true showErrors=showErrors label='Address'}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        {{form-input-text value=organization.phone isValid=organization.isPhoneValid showErrors=showErrors label='Phone'}}
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        {{form-input-text value=organization.email isValid=organization.isEmailValid showErrors=showErrors label='Email'}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        {{form-input-text value=organization.url isValid=organization.isUrlValid showErrors=showErrors label='URL'}}
+      </div>
+    </div>
+
+    {{form-errors-alert errors=(map-by 'message' organization.errors) showErrors=showErrors}}
+  {{/content-box-body}}
+
+  {{#content-box-footer}}
+    <div class="row">
+      <div class="col-xs-12 col-sm-3">
+        {{button-save onClickAction=(action 'save')}}
+      </div>
+
+      <div class="col-xs-12 col-sm-3">
+        {{button-cancel onClickAction=(action 'cancel')}}
+      </div>
+    </div>
+  {{/content-box-footer}}
+{{/content-box}}

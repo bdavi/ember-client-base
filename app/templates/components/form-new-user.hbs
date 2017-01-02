@@ -6,7 +6,7 @@
   <p class="login-box-msg">Register a new account</p>
   {{form-input-text
     value=user.name
-    isValid=user.isNameVaild
+    isValid=user.isNameValid
     placeholder='Full Name'
     feedbackIcon='user'
     showErrors=showErrors
@@ -14,7 +14,7 @@
 
   {{form-input-text
     value=user.email
-    isValid=user.isEmailVaild
+    isValid=user.isEmailValid
     placeholder='Email'
     feedbackIcon='envelope'
     showErrors=showErrors
@@ -22,7 +22,7 @@
 
   {{form-input-text
     value=organization.name
-    isValid=organization.isNameVaild
+    isValid=organization.isNameValid
     placeholder='Organization Name'
     feedbackIcon='equalizer'
     showErrors=showErrors

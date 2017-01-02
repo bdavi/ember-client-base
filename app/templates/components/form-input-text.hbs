@@ -3,7 +3,11 @@
     <label>{{label}}</label>
   {{/if}}
 
-  {{input type=type value=value class='form-control' placeholder=placeholder key-down=keyDownAction}}
+  {{#if (gt rows 1)}}
+    {{textarea rows=rows value=value class='form-control' placeholder=placeholder key-down=keyDownAction}}
+  {{else}}
+    {{input type=type value=value class='form-control' placeholder=placeholder key-down=keyDownAction}}
+  {{/if}}
 
   {{#if feedbackIcon}}
     <span class="glyphicon glyphicon-{{feedbackIcon}} form-control-feedback"></span>
