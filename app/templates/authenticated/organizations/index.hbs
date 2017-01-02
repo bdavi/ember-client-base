@@ -28,6 +28,10 @@
           <ul class="list-group">
             {{#each model as |organization|}}
               {{list-item-organization organization=organization}}
+            {{else}}
+              <li class="list-group-item">
+                No organizations to display.
+              </li>
             {{/each}}
           </ul>
         </div>
