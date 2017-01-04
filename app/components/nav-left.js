@@ -4,4 +4,6 @@ export default Ember.Component.extend({
   classNames: 'main-sidebar',
 
   tagName: 'aside',
+
+  organization: null,
 });

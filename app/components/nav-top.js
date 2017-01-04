@@ -8,4 +8,8 @@ export default Ember.Component.extend({
 
   user: null,
 
+  topOrganizations: null,
+
+  organization: null,
+
 });
