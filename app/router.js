@@ -12,7 +12,9 @@ Router.map(function() {
       this.route('edit');
       this.route('reset-password');
     });
-    this.route('organizations', function() {});
+    this.route('organizations', function() {
+      this.route('new');
+    });
     this.route('organization', { path: 'organizations/:organizationId' }, function() {
       this.route('edit');
     });
