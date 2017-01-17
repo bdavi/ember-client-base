@@ -25,6 +25,7 @@ Router.map(function() {
   this.route('login');
   this.route('register');
   this.route('forgot-password');
+  this.route('redeem-invitation');
 });
 
 export default Router;

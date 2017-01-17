@@ -19,4 +19,6 @@ export default Ember.Component.extend({
   keyDownAction: null,
 
   rows: 1,
+
+  disabled: false,
 });

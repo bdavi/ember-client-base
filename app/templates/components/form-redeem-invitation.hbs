@@ -1,0 +1,55 @@
+<div class="login-logo">
+  <a href="/"><b>Base</b>App</a>
+</div>
+
+<div class="login-box-body">
+  <p class="login-box-msg">Welcome to {{organizationName}}.</p>
+  {{form-input-text
+    value=user.name
+    isValid=user.isNameValid
+    placeholder='Full Name'
+    feedbackIcon='user'
+    showErrors=showErrors
+  }}
+
+  {{form-input-text
+    value=user.email
+    isValid=user.isEmailValid
+    placeholder='Email'
+    feedbackIcon='envelope'
+    showErrors=showErrors
+    disabled=true
+  }}
+
+  {{form-input-text
+    value=user.password
+    isValid=(and isPasswordValid passwordMatchesConfirmation)
+    type='password'
+    placeholder='Password'
+    feedbackIcon='lock'
+    showErrors=showErrors
+  }}
+
+  {{form-input-text
+    value=passwordConfirmation
+    isValid=(and isPasswordConfirmationValid passwordMatchesConfirmation)
+    type='password'
+    placeholder='Confirm Password'
+    feedbackIcon='repeat'
+    showErrors=showErrors
+  }}
+
+  {{form-errors-alert errors=(map-by 'message' user.errors) showErrors=showErrors}}
+
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-8">
+      {{button-action
+        label="Register"
+        onClickAction=(action 'register')
+      }}
+    </div>
+  </div>
+  {{#link-to 'login'}}
+    Already have an account? Login here.
+  {{/link-to}}
+</div>

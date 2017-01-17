@@ -4,9 +4,9 @@
   {{/if}}
 
   {{#if (gt rows 1)}}
-    {{textarea rows=rows value=value class='form-control' placeholder=placeholder key-down=keyDownAction}}
+    {{textarea rows=rows value=value disabled=disabled class='form-control' placeholder=placeholder key-down=keyDownAction}}
   {{else}}
-    {{input type=type value=value class='form-control' placeholder=placeholder key-down=keyDownAction}}
+    {{input type=type value=value disabled=disabled class='form-control' placeholder=placeholder key-down=keyDownAction}}
   {{/if}}
 
   {{#if feedbackIcon}}
