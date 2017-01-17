@@ -1,4 +1,4 @@
-<button class="btn btn-{{style}} btn-block btn-flat {{if disableButton ' disabled'}}" {{action 'clickAction'}}>
+<button class="btn btn-{{style}} {{additionalClasses}} btn-flat {{if disableButton ' disabled'}}" {{action 'clickAction'}}>
   {{#if isProcessing}}
     <i class="fa fa-cog fa-spin fa-fw"></i>
     <span class="sr-only">Loading...</span>

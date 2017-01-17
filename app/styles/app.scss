@@ -2,26 +2,42 @@
 @import '../../vendor/AdminLTE/css/AdminLTE';
 @import '../../vendor/AdminLTE/css/skins/skin-blue';
 
-html, body {
-  height: 100% !important; // Overrides auto value
-}
-
-.top-nav-user-icon {
-  margin: 3px 5px 0 0;
-}
-
-.layout-boxed {
-  background: url('/assets/img/boxed-bg.jpg') repeat fixed;
-}
-
+// ****************************************************************************
+// Utility Classes
+// ****************************************************************************
 .margin-bottom {
   margin-bottom: 10px;
+}
+
+.pre-wrap-white-space {
+  white-space: pre-wrap;
+}
+
+// ****************************************************************************
+// Component Styling
+// ****************************************************************************
+.top-nav-user-icon {
+  margin: 3px 5px 0 0;
 }
 
 .pagination-index-footer {
   margin: 0;
 }
 
-.pre-wrap-white-space {
-  white-space: pre-wrap;
+// ****************************************************************************
+// AdminLte Setup / Bug Fixes
+// ****************************************************************************
+.layout-boxed {
+  background: url('/assets/img/boxed-bg.jpg') repeat fixed;
+}
+
+// Overrides auto value
+html, body {
+  height: 100% !important;
+}
+
+// Fix AdminLte visual bug on top right menu margin
+// which occurs when toggling left nav menu item.
+.wrapper {
+  overflow: auto !important;
 }

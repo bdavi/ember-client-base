@@ -7,5 +7,23 @@
       icon='bank'
       linkPath='authenticated.organization'
     }}
+
+    {{#nav-left-item
+      title='Users'
+      icon='users'
+      hasChild=true
+    }}
+      {{nav-left-item-sub-item
+        linkPath=(array 'authenticated.organization.membership-invitations.new' organization.id)
+        icon='plus-circle'
+        title='Invite New'
+      }}
+
+      {{nav-left-item-sub-item
+        linkPath=(array 'authenticated.organization.membership-invitations' organization.id)
+        icon='envelope'
+        title='All Invitations'
+      }}
+    {{/nav-left-item}}
   </ul>
 </section>

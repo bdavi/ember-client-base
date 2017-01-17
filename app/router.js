@@ -17,6 +17,9 @@ Router.map(function() {
     });
     this.route('organization', { path: 'organizations/:organizationId' }, function() {
       this.route('edit');
+      this.route('membership-invitations', function() {
+        this.route('new');
+      });
     });
   });
   this.route('login');

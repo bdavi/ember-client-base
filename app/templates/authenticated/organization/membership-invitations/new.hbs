@@ -1,0 +1,24 @@
+{{#page-header title='Invite New User'}}
+  {{#page-header-breadcrumb-wrapper}}
+    <li>
+      {{#link-to 'authenticated'}}
+        {{fa-icon 'home'}} Home
+      {{/link-to}}
+    </li>
+    <li>
+      {{#link-to 'authenticated.organization'}}
+        {{model.organization.name}}
+      {{/link-to}}
+    </li>
+    <li>
+      {{#link-to 'authenticated.organization.membership-invitations'}}
+        User Invitations
+      {{/link-to}}
+    </li>
+    <li class="active">New</li>
+  {{/page-header-breadcrumb-wrapper}}
+{{/page-header}}
+
+{{#page-content-wrapper}}
+  {{form-membership-invitation membershipInvitation=model}}
+{{/page-content-wrapper}}

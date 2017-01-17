@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import SearchableRoute from '../../../mixins/searchable-route';
-import PaginatedRoute from '../../../mixins/paginated-route';
+import SearchableRoute from '../../../../mixins/searchable-route';
+import PaginatedRoute from '../../../../mixins/paginated-route';
 
 const { isPresent } = Ember;
 
@@ -19,20 +19,26 @@ export default Ember.Route.extend(SearchableRoute, PaginatedRoute, {
 
   model(params) {
     const { offset, limit, searchQuery } = params;
+    const organization = this.modelFor('authenticated.organization');
+    const filter = { organization: organization.get('id') };
 
-    const filter = {};
     if (isPresent(searchQuery)) {
       filter.searchBy = searchQuery;
     }
 
-    return this.store.query('organization', {
-      sort: 'name',
+    return this.store.query('membership-invitation', {
+      sort: '-created-at',
       filter: filter,
       page: {
         offset: offset,
         limit: limit,
       },
     });
+  },
+
+  setupController(controller) {
+    this._super(...arguments);
+    controller.set('organization', this.modelFor('authenticated.organization'));
   },
 
   resetQueryParams: function(){

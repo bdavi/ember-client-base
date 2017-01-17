@@ -1,0 +1,28 @@
+{{#content-box}}
+  {{#content-box-body}}
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        {{form-input-text value=membershipInvitation.email isValid=membershipInvitation.isEmailValid showErrors=showErrors label='Email to invite'}}
+      </div>
+    </div>
+
+    {{form-errors-alert errors=(map-by 'message' membershipInvitation.errors) showErrors=showErrors}}
+  {{/content-box-body}}
+
+  {{#content-box-footer}}
+    <div class="row">
+      <div class="col-xs-12 col-sm-3">
+        {{button-action
+          label='Invite'
+          labelIcon='envelope'
+          onClickAction=(action 'save')
+          additionalClasses='btn-block'
+        }}
+      </div>
+
+      <div class="col-xs-12 col-sm-3">
+        {{button-cancel onClickAction=(action 'cancel')}}
+      </div>
+    </div>
+  {{/content-box-footer}}
+{{/content-box}}

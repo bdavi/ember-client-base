@@ -1,0 +1,36 @@
+<div class="row margin-bottom">
+  <div class="col-xs-10">
+    {{display-email email=invitation.email}}
+  </div>
+  <div class="col-xs-2">
+    <div class="pull-right">
+      {{display-label value=invitation.status}}
+    </div>
+  </div>
+</div>
+
+<div class="row margin-bottom">
+  <div class="col-xs-12">
+    <em>
+      Invited {{moment-from-now invitation.createdAt}} by {{invitation.user.name}}
+    </em>
+  </div>
+</div>
+
+{{#if (eq 'pending' invitation.status)}}
+  <div class="row">
+    <div class="col-xs-12">
+      {{button-action
+        label='Delete'
+        labelIcon='times'
+        onClickAction=(action 'delete')
+        style='danger'
+        additionalClasses='btn-xs'
+        requiresConfirmation=true
+        confirmationMessage='Are you sure you want to delete this record?'
+        confirmationTitle='Confirm Deletion'
+        confirmationButtonLabel='Delete'
+      }}
+    </div>
+  </div>
+{{/if}}

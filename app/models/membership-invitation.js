@@ -17,7 +17,7 @@ export default DS.Model.extend({
   email: attr('string'),
 
   isEmailValid: computed('email', function() {
-    return isEmail(this.get('email'));
+    return isEmail(this.get('email') || '');
   }),
 
   membership: belongsTo('membership'),
@@ -28,6 +28,12 @@ export default DS.Model.extend({
     return isPresent(this.get('organization'));
   }),
 
+  invitedUser: belongsTo('user'),
+
+  status: attr('string'),
+
   isValid: computed.and('isUserValid', 'isEmailValid', 'isOrganizationValid'),
+
+  createdAt: attr('date'),
 
 });
