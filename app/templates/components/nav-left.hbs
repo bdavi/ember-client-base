@@ -14,15 +14,21 @@
       hasChild=true
     }}
       {{nav-left-item-sub-item
-        linkPath=(array 'authenticated.organization.membership-invitations.new' organization.id)
-        icon='plus-circle'
-        title='Invite New'
+        linkPath=(array 'authenticated.organization.memberships' organization.id)
+        icon='user'
+        title='Current Users'
       }}
 
       {{nav-left-item-sub-item
         linkPath=(array 'authenticated.organization.membership-invitations' organization.id)
         icon='envelope'
-        title='All Invitations'
+        title='Invitations'
+      }}
+
+      {{nav-left-item-sub-item
+        linkPath=(array 'authenticated.organization.membership-invitations.new' organization.id)
+        icon='plus-circle'
+        title='Invite New'
       }}
     {{/nav-left-item}}
   </ul>

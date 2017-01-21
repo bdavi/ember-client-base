@@ -20,6 +20,7 @@ Router.map(function() {
       this.route('membership-invitations', function() {
         this.route('new');
       });
+      this.route('memberships');
     });
   });
   this.route('login');

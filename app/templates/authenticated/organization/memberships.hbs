@@ -1,0 +1,64 @@
+{{#page-header title="Users"}}
+  {{#page-header-breadcrumb-wrapper}}
+    <li>
+      {{#link-to 'authenticated'}}
+        {{fa-icon 'home'}} Home
+      {{/link-to}}
+    </li>
+    <li>
+      {{#link-to 'authenticated.organization'}}
+        {{organization.name}}
+      {{/link-to}}
+    </li>
+    <li class="active">Current Users</li>
+  {{/page-header-breadcrumb-wrapper}}
+{{/page-header}}
+
+{{#page-content-wrapper}}
+  {{#content-box}}
+    {{#content-box-body}}
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          {{form-input-text
+            value=displaySearchQuery
+            keyDownAction=(action 'search')
+            placeholder='Search invitations...'
+            feedbackIcon='search'
+          }}
+        </div>
+
+        <div class="col-xs-12 col-sm-3 pull-right">
+          {{#link-to 'authenticated.organization.membership-invitations.new' class='btn btn-primary btn-block btn-flat' tagName='button'}}
+            {{fa-icon 'plus-circle'}} Invite New
+          {{/link-to}}
+        </div>
+      </div>
+
+      <ul class="list-group">
+        {{#each model as |membership|}}
+          {{list-item-membership membership=membership}}
+        {{else}}
+          <li class="list-group-item">
+            No users to display.
+          </li>
+        {{/each}}
+      </ul>
+    {{/content-box-body}}
+
+    {{#content-box-footer}}
+      {{pagination-buttons
+        class='pull-right'
+        goToNextPageAction=(action 'goToNextPage')
+        goToPreviousPageAction=(action 'goToPreviousPage')
+        goToPageAction=(action 'goToPage')
+        currentPageNumber=currentPageNumber
+        totalPageCount=totalPageCount
+        hasNextPage=hasNextPage
+        hasPreviousPage=hasPreviousPage
+      }}
+    {{/content-box-footer}}
+  {{/content-box}}
+{{/page-content-wrapper}}
+
+
