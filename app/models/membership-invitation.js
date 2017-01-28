@@ -20,8 +20,6 @@ export default DS.Model.extend({
     return isEmail(this.get('email') || '');
   }),
 
-  membership: belongsTo('membership'),
-
   organization: belongsTo('organization'),
 
   isOrganizationValid: computed('organization', function() {

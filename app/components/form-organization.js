@@ -19,24 +19,26 @@ export default Ember.Component.extend({
           return;
         }
 
-        this.get('organization').save().then((organization) => {
-          this.get('router').transitionTo('authenticated.organization', organization.get('id')).promise.then(() => {
-            resolve();
-          });
-        }, (error) => {
-          this.set('showErrors', true);
-          reject(error);
-        });
+        this.get('organization').save().then(
+          (organization) => {
+            this.get('router').transitionTo('authenticated.organization', organization.get('id')).promise.then(() => {
+              resolve();
+            });
+          },
+          (error) => {
+            this.set('showErrors', true);
+            reject(error);
+          }
+        );
       });
     },
 
     cancel() {
       return new Promise(() => {
+        this.get('organization').rollbackAttributes();
         if (this.get('organization.isNew')) {
-          this.get('organization').rollbackAttributes();
           this.get('router').transitionTo('authenticated.organizations');
         } else {
-          this.get('organization').rollbackAttributes();
           this.get('router').transitionTo('authenticated.organization');
         }
       });

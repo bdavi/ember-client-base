@@ -20,7 +20,10 @@ export default Ember.Route.extend(SearchableRoute, PaginatedRoute, {
   model(params) {
     const { offset, limit, searchQuery } = params;
     const organization = this.modelFor('authenticated.organization');
-    const filter = { organization: organization.get('id') };
+    const filter = {
+      organization: organization.get('id'),
+      status: 'pending'
+    };
 
     if (isPresent(searchQuery)) {
       filter.searchBy = searchQuery;
