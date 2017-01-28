@@ -23,7 +23,7 @@
           {{form-input-text
             value=displaySearchQuery
             keyDownAction=(action 'search')
-            placeholder='Search invitations...'
+            placeholder='Search users...'
             feedbackIcon='search'
           }}
         </div>
@@ -37,7 +37,10 @@
 
       <ul class="list-group">
         {{#each model as |membership|}}
-          {{list-item-membership membership=membership}}
+          {{list-item-membership
+            membership=membership
+            currentUser=currentUser
+          }}
         {{else}}
           <li class="list-group-item">
             No users to display.
@@ -60,5 +63,3 @@
     {{/content-box-footer}}
   {{/content-box}}
 {{/page-content-wrapper}}
-
-

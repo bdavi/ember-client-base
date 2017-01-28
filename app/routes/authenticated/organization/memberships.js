@@ -43,4 +43,10 @@ export default Ember.Route.extend(SearchableRoute, PaginatedRoute, {
     this.resetPaginationQueryParams();
   }.on('deactivate'),
 
+  setupController(controller) {
+    this._super(...arguments);
+    controller.set('currentUser', this.modelFor('authenticated'));
+    controller.set('organization', this.modelFor('authenticated.organization'));
+  },
+
 });

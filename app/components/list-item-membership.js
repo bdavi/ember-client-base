@@ -7,6 +7,8 @@ export default Ember.Component.extend({
 
   membership: null,
 
+  currentUser: null,
+
   actions: {
     delete() {
       return this.get('membership').destroyRecord();

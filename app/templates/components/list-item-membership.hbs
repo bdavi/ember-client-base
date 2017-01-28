@@ -1,16 +1,18 @@
 {{membership.user.name}}
+- <a href="mailto:{{membership.user.email}}">{{membership.user.email}}</a>
 
-<div class="pull-right">
-  {{button-action
-    label='Remove'
-    labelIcon='times'
-    onClickAction=(action 'delete')
-    style='danger'
-    additionalClasses='btn-xs'
-    requiresConfirmation=true
-    confirmationMessage='Are you sure you want to remove this user?'
-    confirmationTitle='Confirm Deletion'
-    confirmationButtonLabel='Delete'
-  }}
-</div>
-
+{{#if (not-eq currentUser membership.user.content)}}
+  <div class="pull-right">
+    {{button-action
+      label='Remove'
+      labelIcon='times'
+      onClickAction=(action 'delete')
+      style='danger'
+      additionalClasses='btn-xs'
+      requiresConfirmation=true
+      confirmationMessage='Are you sure you want to remove this user?'
+      confirmationTitle='Confirm Deletion'
+      confirmationButtonLabel='Delete'
+    }}
+  </div>
+{{/if}}
