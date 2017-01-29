@@ -17,7 +17,6 @@
 {{#page-content-wrapper}}
   {{#content-box}}
     {{#content-box-body}}
-
       <div class="row">
         <div class="col-xs-12 col-sm-6">
           {{form-input-text
@@ -37,7 +36,10 @@
 
       <ul class="list-group">
         {{#each model as |invitation|}}
-          {{list-item-membership-invitation invitation=invitation}}
+          {{list-item-membership-invitation
+            invitation=invitation
+            afterDeleteAction=(route-action 'reloadMembershipInvitationsIndex')
+          }}
         {{else}}
           <li class="list-group-item">
             No invitations to display.

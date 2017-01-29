@@ -49,4 +49,10 @@ export default Ember.Route.extend(SearchableRoute, PaginatedRoute, {
     controller.set('organization', this.modelFor('authenticated.organization'));
   },
 
+  actions: {
+    reloadMembershipsIndex() {
+      this.refresh();
+    },
+  },
+
 });

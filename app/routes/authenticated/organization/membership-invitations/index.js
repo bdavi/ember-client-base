@@ -49,4 +49,10 @@ export default Ember.Route.extend(SearchableRoute, PaginatedRoute, {
     this.resetPaginationQueryParams();
   }.on('deactivate'),
 
+  actions: {
+    reloadMembershipInvitationsIndex() {
+      this.refresh();
+    },
+  },
+
 });

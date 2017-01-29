@@ -1,5 +1,10 @@
 import Ember from 'ember';
 
+const {
+  RSVP: { Promise, },
+  isPresent,
+} = Ember;
+
 export default Ember.Component.extend({
   tagName: 'li',
 
@@ -9,9 +14,18 @@ export default Ember.Component.extend({
 
   currentUser: null,
 
+  afterDeleteAction: null,
+
   actions: {
     delete() {
-      return this.get('membership').destroyRecord();
+      return new Promise((resolve) => {
+        this.get('membership').destroyRecord().then(() => {
+          const afterDeleteAction = this.get('afterDeleteAction');
+          if (isPresent(afterDeleteAction)) {
+            afterDeleteAction();
+          }
+        });
+      });
     },
   },
 

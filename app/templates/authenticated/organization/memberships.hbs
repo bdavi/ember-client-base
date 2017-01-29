@@ -17,7 +17,6 @@
 {{#page-content-wrapper}}
   {{#content-box}}
     {{#content-box-body}}
-
       <div class="row">
         <div class="col-xs-12 col-sm-6">
           {{form-input-text
@@ -40,6 +39,7 @@
           {{list-item-membership
             membership=membership
             currentUser=currentUser
+            afterDeleteAction=(route-action 'reloadMembershipsIndex')
           }}
         {{else}}
           <li class="list-group-item">
