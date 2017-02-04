@@ -22,6 +22,7 @@ export default Ember.Component.extend({
           if (isPresent(afterDeleteAction)) {
             afterDeleteAction();
           }
+          resolve();
         });
       });
     },
