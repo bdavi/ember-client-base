@@ -36,10 +36,10 @@ export default Ember.Component.extend({
     cancel() {
       return new Promise(() => {
         this.get('organization').rollbackAttributes();
-        if (this.get('organization.isNew')) {
-          this.get('router').transitionTo('authenticated.organizations');
+        if (this.get('organization.id')) {
+          this.get('router').transitionTo('authenticated.organization', this.get('organization.id'));
         } else {
-          this.get('router').transitionTo('authenticated.organization');
+          this.get('router').transitionTo('authenticated.organizations');
         }
       });
     },
